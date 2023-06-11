@@ -16,8 +16,10 @@ Answer:
 **Question 2: What is the average number of products ordered from visitors in each city and country?**
 
 
-SQL Queries:
-
+SELECT distinct (city), country,
+avg(totaltransactionrevenue)
+from all_sessions
+GROUP BY totaltransactionrevenue, city,country
 
 
 Answer:

@@ -23,7 +23,16 @@ GROUP BY totaltransactionrevenue, city,country
 
 
 Answer:
-
+"city"	"country"	"avg_revenue_per_city"
+"Tel Aviv-Yafo"	"Israel"	602000000.00000000
+"Atlanta"	"United States"	427220000.00000000
+"Seattle"	"United States"	358000000.00000000
+"Sydney"	"Australia"	358000000.00000000
+"Sunnyvale"	"United States"	248057500.00000000
+"not available in demo dataset"	"United States"	243702400.00000000
+"Los Angeles"	"United States"	239740000.00000000
+"Palo Alto"	"United States"	202666666.66666667
+"Nashville"	"United States"	157000000.000000000000	
 
 
 

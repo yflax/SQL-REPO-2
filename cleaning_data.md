@@ -3,7 +3,7 @@ What issues will you address by cleaning the data?
 > ensure data makes sense given the context/ name of column ex.1
 > change unitprice to standard currency format (not cents) ex.2
 > find the difference between unitprice and productprice and when either equals 0 ex3
-
+> change 'time' column to varchar and then to time format ex.5
 
 
 
@@ -27,3 +27,19 @@ where productprice <= 0 or unitprice <=0
 4) ALTER table all_sessions
    ALTER column totaltransactionrevenue type  numeric
    USING totaltransactionrevenue::numeric
+   and then ( because realized too many number after the decimal)
+   UPDATE all_sessions
+SET totaltransactionrevenues = ROUND(totaltransactionrevenue::numeric, 2);
+ALTER TABLE all_sessions
+DROP COLUMN totaltransactionrevenue;
+ALTER TABLE all_sessions
+RENAME COLUMN totaltransactionrevenues TO totaltransactionrevenue
+select * from all_sessions
+
+5) ALTER TABLE all_sessions
+ALTER COLUMN time
+TYPE VARCHAR
+USING LPAD(time::VARCHAR, 6, '0');
+
+UPDATE public.all_sessions
+SET time = SUBSTR(time, 1, 2) || ':' || SUBSTR(time, 3, 2) || ':' || SUBSTR(time, 5, 2);

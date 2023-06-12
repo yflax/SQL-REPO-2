@@ -6,6 +6,7 @@ What issues will you address by cleaning the data?
 > change 'time' column to varchar and then to time format and make sure that when minute or second exceeds 59 it carries over to the next section (ie.60 seconds =>1 minute and 00 for seconds) ex.5
 > change timeonsite in analytics  from varchar to integer ex.6 
 > change visitstartime in analytics to timestamp ex.7
+> shorten and change format of fullvisitor id in ex.8 *note to self for the future :  could accomplished the same thing with far less queries ie.more concise
 
 
 

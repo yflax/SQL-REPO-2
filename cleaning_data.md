@@ -79,4 +79,18 @@ ALTER TABLE analytics RENAME COLUMN visitstarttime_new TO visitstarttime;
 8) -- remove the scientific notation from fullvisior id and chnage type to numeric 
 ALTER TABLE all_sessions ALTER COLUMN fullvisitorid TYPE numeric USING fullvisitorid::n
 
--- noticing that the all the fullvisitorids have three numbers in the beginning and zeros 
+-- noticing that the all the fullvisitorids have three numbers in the beginning and unnecessary zeros after the decimal. the following will remove zeros after the deciam point
+UPDATEall_sessions
+SET fullvisitorid = regexp_replace(fullvisitorid::text, '(\.[0-9]*?)0*$', '\1')::numeric
+
+-- so it could be simplified further by deviding it by 1 billion so that its contains only non-zero numbers . so divided and removed zeros after decimal point again
+update all_sessions
+set fullvisitorid=(fullvisitorid/100000000);
+
+UPDATE your_table
+SET fullvisitorid = ROUND(fullvisitorid, 2) -- to allow only two digits after the decimal place 
+
+
+
+
+

@@ -91,6 +91,9 @@ set fullvisitorid=(fullvisitorid/100000000);
 UPDATE your_table
 SET fullvisitorid = ROUND(fullvisitorid, 2) -- to allow only two digits after the decimal place 
 
+9) -- noticed city 'New York' with country 'Canada' so:
+  Update all_sessions 
+SET country = 'USA' where city = 'New York'
 
 
 

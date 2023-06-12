@@ -4,6 +4,8 @@ What issues will you address by cleaning the data?
 > change unitprice to standard currency format (not cents) ex.2
 > find the difference between unitprice and productprice and when either equals 0 ex3
 > change 'time' column to varchar and then to time format and make sure that when minute or second exceeds 59 it carries over to the next section (ie.60 seconds =>1 minute and 00 for seconds) ex.5
+> change timeonsite in analytics  from varchar to integer ex.6 
+> change visitstartime in analytics to timestamp ex.7
 
 
 
@@ -53,3 +55,23 @@ SET time = TIME '00:00:00' +
 		   
 ALTER TABLE public.all_sessions
 ALTER COLUMN time TYPE TIME USING time::TIME;
+
+6) ALTER TABLE analytics ADD COLUMN timeonsite_minutes INTEGER;
+
+UPDATE analytics
+SET timeonsite_minutes = CAST(timeonsite AS INTEGER);
+
+ALTER TABLE analytics DROP COLUMN timeonsite;
+
+ALTER TABLE analytics RENAME COLUMN timeonsite_minutes TO timeonsite;
+
+7) --create new table with timestamp format
+ALTER TABLE analytics ADD COLUMN visitstarttime_new timestamp with time zone;
+
+--input the original visitstarttime values in the new table
+UPDATE analytics
+SET visitstarttime_new = to_timestamp(visitstarttime)
+
+--drop the original table and rename the new one to the original name
+ALTER TABLE analytics DROP COLUMN visitstarttime;
+ALTER TABLE analytics RENAME COLUMN visitstarttime_new TO visitstarttime;

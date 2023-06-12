@@ -75,3 +75,8 @@ SET visitstarttime_new = to_timestamp(visitstarttime)
 --drop the original table and rename the new one to the original name
 ALTER TABLE analytics DROP COLUMN visitstarttime;
 ALTER TABLE analytics RENAME COLUMN visitstarttime_new TO visitstarttime;
+
+8) -- remove the scientific notation from fullvisior id and chnage type to numeric 
+ALTER TABLE all_sessions ALTER COLUMN fullvisitorid TYPE numeric USING fullvisitorid::n
+
+-- noticing that the all the fullvisitorids have three numbers in the beginning and zeros 

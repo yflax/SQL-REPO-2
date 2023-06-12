@@ -94,6 +94,15 @@ SET fullvisitorid = ROUND(fullvisitorid, 2) -- to allow only two digits after th
 9) -- noticed city 'New York' with country 'Canada' so:
   Update all_sessions 
 SET country = 'USA' where city = 'New York'
+10) -- fill '(not available in demo dataset )' values for city with the mode for cities when the country is canada
+select count(city), city from all_sessions where country = 'Canada' group by city order by count(city) desc -- returns 'not avail as mode , and 'toronto' as city value the appears secind most frequently so:
+update all_sessions
+set city = 'Toronto' where city= 'not available in demo dataset' and country = 'Canada' 
+-- now will do the same for USA and other countries
+select count(city), city,country from all_sessions where country = 'Mexico' group by  country, city order by count(city) desc -- "mexico City" and so on...
+
+
+
 
 
 

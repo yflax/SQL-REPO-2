@@ -99,9 +99,12 @@ select count(city), city from all_sessions where country = 'Canada' group by cit
 update all_sessions
 set city = 'Toronto' where city= 'not available in demo dataset' and country = 'Canada' 
 -- now will do the same for USA and other countries
-select count(city), city,country from all_sessions where country = 'Mexico' group by  country, city order by count(city) desc -- "mexico City" and so on...
+select count(city), city,country from all_sessions where country = 'Mexico' group by  country, city order by count(city) desc 
 
+update all_sessions
+set city = 'Mexico City' where country= 'Mexico' and city = 'not available in demo dataset'-- "mexico City" and so on... for Dominican Republic (which had no city value at all)I chose "santo domingo" which is the capital. since it is a developing country the inferrence was made that it is unlikely there are shipments made to villages/cities other than the capital
 
+update all_sessions set country = 'Dominican Republic' where city = 'Santo Domingo' -- santo dom was in Taiwan
 
 
 

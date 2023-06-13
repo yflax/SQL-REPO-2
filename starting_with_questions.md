@@ -5,6 +5,11 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 
 SQL Queries:
+SELECT city, country, SUM(totaltransactionrevenue)AS Total_Revenue
+FROM all_sessions where totaltransactionrevenue is not null
+GROUP BY city, country
+ORDER BY Total_Revenue DESC
+LIMIT 10;
 
 
 

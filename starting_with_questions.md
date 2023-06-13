@@ -5,26 +5,27 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 
 SQL Queries:
-SELECT city, country, SUM(totaltransactionrevenue)AS Total_Revenue
-FROM all_sessions where totaltransactionrevenue is not null
-GROUP BY city, country
-ORDER BY Total_Revenue DESC
+SELECT city, country, total_revenue, RANK() OVER (ORDER BY total_revenue DESC) AS revenue_rank
+FROM (
+  SELECT city, country,COALESCE(SUM("totaltransactionrevenue"),0) AS total_revenue
+  FROM all_sessions
+  GROUP BY city, country
+) AS subquery
+ORDER BY total_revenue DESC
 LIMIT 10;
 
 
-
-Answer: ![image](https://github.com/yflax/SQL-REPO-2/assets/127430738/87864f63-79bc-4e5c-ad0d-81386d3ef7fc)
-"city"	"country"	"total_revenue"
-"New York"	"United States"	60925.600
-"San Francisco"	"United States"	15643.200
-"Sunnyvale"	"United States"	9922.300
-"Atlanta"	"United States"	8544.400
-"Palo Alto"	"United States"	6080.000
-"Tel Aviv-Yafo"	"Israel"	6020.000
-"New York"	"USA"	5983.500
-"Mountain View"	"United States"	4833.600
-"Los Angeles"	"United States"	4794.800
-"Chicago"	"United States"	4495.200
+Answer: ![image](https://github.com/yflax/SQL-REPO-2/assets/127430738/01894008-0e88-4250-9bf9-0b2e4137bdf3)
+"New York"	"United States"	66909.100	1
+"San Francisco"	"United States"	15643.200	2
+"Sunnyvale"	"United States"	9922.300	3
+"Atlanta"	"United States"	8544.400	4
+"Palo Alto"	"United States"	6080.000	5
+"Tel Aviv-Yafo"	"Israel"	6020.000	6
+"Mountain View"	"United States"	4833.600	7
+"Los Angeles"	"United States"	4794.800	8
+"Chicago"	"United States"	4495.200	9
+"Sydney"	"Australia"	3580.000	10
 
 
 

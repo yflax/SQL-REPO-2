@@ -105,7 +105,10 @@ update all_sessions
 set city = 'Mexico City' where country= 'Mexico' and city = 'not available in demo dataset'-- "mexico City" and so on... for Dominican Republic (which had no city value at all)I chose "santo domingo" which is the capital. since it is a developing country the inferrence was made that it is unlikely there are shipments made to villages/cities other than the capital
 
 update all_sessions set country = 'Dominican Republic' where city = 'Santo Domingo' -- santo dom was in Taiwan
-
+--didnt realize there were so many countries so stopped in the middle
+11) CREATE TABLE _empty_values_to_be_logged AS
+SELECT *
+FROM all_sessions
 
 
 

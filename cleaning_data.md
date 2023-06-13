@@ -128,6 +128,16 @@ SET v2productcategory = REPLACE(v2productcategory, 'Android ', ''),
     v2productname = REPLACE(v2productname, 'Android ', '')
 WHERE v2productcategory LIKE '%Android%' OR v2productname LIKE '%Android%';
 
+14) -- noticed some categories are not set 
+select v2productcategory, v2productname from all_sessions where v2productcategory = '(not set)'
+
+SELECT v2productcategory
+FROM all_sessions
+WHERE v2productname = 'Women''s Short Sleeve Hero Tee White';
+
+update all_sessions
+set v2productcategry ='Home/Apparel/Women''s/Women''s-T-Shirts/' where v2productname ='Women''s Short Sleeve Hero Tee White'
+
 
 
 

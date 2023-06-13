@@ -8,7 +8,7 @@ What issues will you address by cleaning the data?
 > change visitstartime in analytics to timestamp ex.7
 > shorten and change format of fullvisitor id in ex.8 *note to self for the future :  could accomplished the same thing with far less queries ie.more concise
 > change productquantity from varchar to integer ex.12
-
+> clean the v2productcategoru and v2productname columns by removing the words 'Google' and 'YouTube'  and 'Androrid which have no connection to the columns
 
 
 Queries:
@@ -117,6 +117,19 @@ FROM all_sessions
 12) 
 ALTER TABLE all_sessions
 ALTER COLUMN productquantity TYPE numeric(10,2) USING ROUND(productquantity::numeric, 2);
+
+13) UPDATE all_sessions
+SET v2productcategory = REPLACE(REPLACE(v2productcategory, 'Google ', ''), 'YouTube', ''),
+    v2productname = REPLACE(REPLACE(v2productname, 'Google ', ''), 'YouTube', '')
+WHERE v2productcategory LIKE '% Google %' OR v2productcategory LIKE '%YouTube%' OR v2productname LIKE '% Google %' OR v2productname LIKE '%YouTube%';
+-- then noticed the word android too so:
+UPDATE all_sessions
+SET v2productcategory = REPLACE(v2productcategory, 'Android ', ''),
+    v2productname = REPLACE(v2productname, 'Android ', '')
+WHERE v2productcategory LIKE '%Android%' OR v2productname LIKE '%Android%';
+
+
+
 
 
 

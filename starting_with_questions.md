@@ -13,7 +13,19 @@ LIMIT 10;
 
 
 
-Answer:
+Answer: ![image](https://github.com/yflax/SQL-REPO-2/assets/127430738/87864f63-79bc-4e5c-ad0d-81386d3ef7fc)
+"city"	"country"	"total_revenue"
+"New York"	"United States"	60925.600
+"San Francisco"	"United States"	15643.200
+"Sunnyvale"	"United States"	9922.300
+"Atlanta"	"United States"	8544.400
+"Palo Alto"	"United States"	6080.000
+"Tel Aviv-Yafo"	"Israel"	6020.000
+"New York"	"USA"	5983.500
+"Mountain View"	"United States"	4833.600
+"Los Angeles"	"United States"	4794.800
+"Chicago"	"United States"	4495.200
+
 
 
 

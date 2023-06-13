@@ -37,7 +37,10 @@ ALTER TABLE all_sessions
 DROP COLUMN totaltransactionrevenue;
 ALTER TABLE all_sessions
 RENAME COLUMN totaltransactionrevenues TO totaltransactionrevenue
-select * from all_sessions
+select * from all_sessions -- in hindsight could have done this with one piece of code as opposed to three chuncks of code;
+
+update  all_sessions
+ set totaltransactionrevenue= (totaltransactionrevenue/100000) -- unlikely that totaltransaction revenue is in the millions so divided it
 
 5) ALTER TABLE all_sessions
 ALTER COLUMN time

@@ -107,7 +107,7 @@ set city = 'Mexico City' where country= 'Mexico' and city = 'not available in de
 update all_sessions set country = 'Dominican Republic' where city = 'Santo Domingo' -- santo dom was in Taiwan
 --didnt realize there were so many countries so stopped in the middle
 11) CREATE TABLE _empty_values_to_be_logged AS
-SELECT *
+SELECT v2productname , v2productcategory,
 FROM all_sessions
 
 

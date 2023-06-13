@@ -32,11 +32,10 @@ Answer: ![image](https://github.com/yflax/SQL-REPO-2/assets/127430738/87864f63-7
 
 **Question 2: What is the average number of products ordered from visitors in each city and country?**
 
-
-SELECT distinct (city), country,
-avg(totaltransactionrevenue)
-from all_sessions
-GROUP BY totaltransactionrevenue, city,country
+SELECT city, country, Avg(productquantity)AS Average_product_quantity
+FROM all_sessions 
+where productquantity is not null
+GROUP BY city, country
 
 
 Answer:

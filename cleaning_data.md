@@ -7,6 +7,7 @@ What issues will you address by cleaning the data?
 > change timeonsite in analytics  from varchar to integer ex.6 
 > change visitstartime in analytics to timestamp ex.7
 > shorten and change format of fullvisitor id in ex.8 *note to self for the future :  could accomplished the same thing with far less queries ie.more concise
+> change productquantity from varchar to integer ex.12
 
 
 
@@ -112,6 +113,10 @@ update all_sessions set country = 'Dominican Republic' where city = 'Santo Domin
 11) CREATE TABLE _empty_values_to_be_logged AS
 SELECT v2productname , v2productcategory,
 FROM all_sessions
+
+12) 
+alter table all_sessions
+alter column productquantity type integer using productquantity::integer
 
 
 

@@ -39,16 +39,18 @@ GROUP BY city, country
 
 
 Answer:
-"city"	"country"	"avg_revenue_per_city"
-"Tel Aviv-Yafo"	"Israel"	602000000.00000000
-"Atlanta"	"United States"	427220000.00000000
-"Seattle"	"United States"	358000000.00000000
-"Sydney"	"Australia"	358000000.00000000
-"Sunnyvale"	"United States"	248057500.00000000
-"not available in demo dataset"	"United States"	243702400.00000000
-"Los Angeles"	"United States"	239740000.00000000
-"Palo Alto"	"United States"	202666666.66666667
-"Nashville"	"United States"	157000000.000000000000	
+![image](https://github.com/yflax/SQL-REPO-2/assets/127430738/afe14939-add5-4a2a-938a-14e6b6269884)
+"Madrid"	"Spain"	10.0000000000000000
+"Salem"	"United States"	8.0000000000000000
+"New York"	"United States"	7.4444444444444444
+"Atlanta"	"United States"	4.0000000000000000
+"Houston"	"United States"	2.0000000000000000
+"Columbus"	"United States"	1.00000000000000000000
+"Dallas"	"United States"	1.00000000000000000000
+"Detroit"	"United States"	1.00000000000000000000
+"Dublin"	"Ireland"	1.00000000000000000000
+"Helsinki"	"Finland"	1.00000000000000000000
+"Los Angeles"	"United States"	1.00000000000000000000
 
 
 

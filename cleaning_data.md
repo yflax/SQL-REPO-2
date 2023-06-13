@@ -115,8 +115,9 @@ SELECT v2productname , v2productcategory,
 FROM all_sessions
 
 12) 
-alter table all_sessions
-alter column productquantity type integer using productquantity::integer
+ALTER TABLE all_sessions
+ALTER COLUMN productquantity TYPE numeric(10,2) USING ROUND(productquantity::numeric, 2);
+
 
 
 
